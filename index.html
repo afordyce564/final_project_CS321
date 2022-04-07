@@ -1,18 +1,114 @@
 <!DOCTYPE html>
 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-   <title>Froggy Adventure</title>
-   <style>
-
-   </style>
+    <meta charset="utf-8" />
+    <title>Froggy Adventure Game</title>
 </head>
-
-<script>
-
-</script>
-
 <body>
+    <style>
+        #green001 {
+            color: green;
+        }
 
+        #orange001 {
+            color: orange;
+        }
+
+        #font001 {
+            color: black;
+            font-size: 42px;
+            cursor: context-menu;
+        }
+    </style>
+    <div id="font001">
+            <text>Score: </text><text id="score001">0</text><br />
+            <text>Attempts: </text><text id="attempts001">6</text><br />
+        <div id="disappear001">
+            <p id="question001"></p>
+            </div>
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="next001"></p>
+        </div>
+
+    <script>
+        var b = 0;
+        b++;
+        var c = 6;
+        c--;
+
+        var text001 = ["<text onmousedown=iq001(this)>Yesterday was </text><text onmousedown=cq001(this)>wendy</text><text onmousedown=iq001(this)>, but today was beautiful.</text>",
+        "<text onmousedown=iq002(this)>I love </text><text onmousedown=cq002(this)>chease</text><text onmousedown=iq002(this)>, I don't mind eating it everyday.</text>",
+        "<text onmousedown=iq003(this)>Where were you last </text><text onmousedown=cq003(this)>knight</text><text onmousedown=iq003(this)>?</text>"
+        ];
+        var random001 = Math.floor(Math.random() * text001.length);
+
+        question001.innerHTML = text001[random001];
+
+        function cq001(x) {
+            score001.innerHTML = b;
+            if (b > 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Correct";
+                message002.innerHTML = "Yesterday was <font id=green001>windy</font>, and today was beautiful.";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function iq001(x) {
+            attempts001.innerHTML = c--;
+            if (c < 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Incorrect.";
+                message002.innerHTML = "Yesterday was <font id=orange001>windy</font>, and today was beautiful.";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function cq002(x) {
+            score001.innerHTML = b;
+            if (b > 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Correct";
+                message002.innerHTML = "I love <font id=green001>cheese</font>, and I don't mind eating it everyday.";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function iq002(x) {
+            attempts001.innerHTML = c--;
+            if (c < 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Incorrect.";
+                message002.innerHTML = "I love <font id=orange001>cheese</font>, and I don't mind eating it everyday.";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function cq003(x) {
+            score001.innerHTML = b;
+            if (b > 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Correct";
+                message002.innerHTML = "Where were you last <font id=green001>night</font>?";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function iq003(x) {
+            attempts001.innerHTML = c--;
+            if (c < 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "Incorrect.";
+                message002.innerHTML = "Where were you last <font id=orange001>night</font>?";
+                next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+            }
+        }
+
+        function repeat001() {
+            location.reload();
+        }
+    </script>
 </body>
-
 </html>
