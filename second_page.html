@@ -33,7 +33,7 @@
             <p id="next001"></p>
         </div>
 
-    <script type="text/javascript"script src="jquery.js">
+        <script type="text/javascript"script src="jquery.js">
         //score
         var b = 0;
         b++;
@@ -51,35 +51,9 @@
         var texts = ["<text onmousedown=turnLeft1(this)>Pick a direction *Left*</text><text onmousedown=turnRight1(this)>*Right*</text>","<text onmousedown=turnLeft2(this)>Pick a direction *Left*</text>","<text onmousedown=turnRight2(this)>*Right*</text>"
         ];
 
-        //start game off with first maze picks
-        question001.innerHTML = texts[0];
+         //start game off with first maze picks
+         question001.innerHTML = texts[2];
 
-        function turnLeft1(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
-            if (b > 0) {
-                disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Left";
-                message002.innerHTML = "Description of turning down the corridor";
-                //choose next direction instead of reloading the page
-                next001.innerHTML = "<button onclick=next()>Continue</button>";
-                //increase progress bar every time the person makes a right move
-            }
-        }
-
-        function turnRight1(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
-            if (b > 0) {
-                disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Right";
-                message002.innerHTML = "Description of turning down the corridor";
-                //choose next direction instead of reloading the page
-                next001.innerHTML = "<button onclick=next()>Continue</button>";
-                //increase progress bar every time the person makes a right move
-            }
-        }
-        //load a new page each time you pick something
         function turnLeft2(x) {
             score001.innerHTML = b++;
             moves001.innerHTML = c++;
@@ -111,8 +85,8 @@
              //make it go one by one since we are having a conversation here
             //var numbers = [1,2,3,4,5,6,7,8,9];
             //for(i = 0; i < numbers.length; i++){
-            //question001.innerHTML = texts[i];
-            location.assign("second_page.html");
+                //question001.innerHTML = texts[i];
+            location.assign("third_page.html");
 } 
         
         
