@@ -17,6 +17,5 @@
   
      
 # Direct to next page
-  function next() {
-            location.assign("fourth_page.html"); <--- Change this to whatever page you want to go to next
-} 
+  function next() {location.assign("fourth_page.html");}<--- Change this to whatever page you want to go to next
+ 
