@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Froggy Adventure Game</title>
+    <title>Frog Adventure Game</title>
 </head>
 <body>
     <style>
@@ -35,10 +35,10 @@
 
         <script>
         //score
-        var b = 0;
+        var b = sessionStorage.getItem('Score');
         b++;
         //moves
-        var c = 0;
+        var c = sessionStorage.getItem('Moves');
         c++;
 
         //change text up here for initial prompt
@@ -54,9 +54,17 @@
          //start game off with first maze picks
          question001.innerHTML = texts[3];
 
+          //should load values from storage session
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#scores001').value = sessionStorage.getItem('Score');
+});
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#moves001').value = sessionStorage.getItem('Moves');
+        });
+
         function turnLeft3(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
+            score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Left";
@@ -68,8 +76,8 @@
         }
 
         function turnRight3(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
+            score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Right"

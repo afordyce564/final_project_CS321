@@ -23,8 +23,8 @@
     </style>
     
     <div id="font001">
-            <text>Score: </text><text id="score001">0</text><br />
-            <text>Moves: </text><text id="moves001">0</text><br />
+            <text>Score: </text><text id="score001"><script>var score = sessionStorage.getItem("Score"); console.log(score);</script></text><br />
+            <text>Moves: </text><script>var moves = sessionStorage.getItem("Moves"); console.log(moves);</script><text id="moves001"></text><br />
         <div id="disappear001">
             <p id="question001"></p>
             </div>
@@ -33,13 +33,12 @@
             <p id="next001"></p>
         </div>
 
-    <script>
- 
+        <script>
         //score
-        var b = 0;
+        var b = sessionStorage.getItem('Score');
         b++;
         //moves
-        var c = 0;
+        var c = sessionStorage.getItem('Moves');
         c++;
 
         //change text up here for initial prompt
@@ -48,40 +47,42 @@
         //or dialogue choice will become Continue button and advance conversation
         //lost section c--
         //move to correct section c++
-        
-        var texts = ["<text onmousedown=turnLeft1(this)>Pick a direction *Left*</text><text onmousedown=turnRight1(this)>*Right*</text>"
+      
+        var texts = ["<text onmousedown=turnLeft1(this)>Pick a direction *Left*</text><text onmousedown=turnRight1(this)>*Right*</text>","<text onmousedown=turnLeft2(this)>Pick a direction *Left*</text>","<text onmousedown=turnRight2(this)>*Right*</text>", "<text onmousedown=turnLeft3(this)>Pick a direction *Left*</text><text onmousedown=turnRight3(this)>*Right*</text>", "<text onmousedown=turnRight2(this)>*Right*</text>", "<text onmousedown=turnLeft4(this)>Pick a direction *Left*</text><text onmousedown=turnRight4(this)>*Right*</text>"
         ];
 
-        //start game off with first maze picks
-        question001.innerHTML = texts[0];
-        
-        function turnLeft1(x) {
+         //start game off with first maze picks
+         question001.innerHTML = texts[3];
+
+          //should load values from storage session
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#scores001').value = sessionStorage.getItem('Score');
+});
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#moves001').value = sessionStorage.getItem('Moves');
+        });
+
+        function turnLeft4(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Left";
                 message002.innerHTML = "Description of turning down the corridor";
-                
-                sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
-                
+                //choose next direction instead of reloading the page
                 next001.innerHTML = "<button onclick=next()>Continue</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
-        function turnRight1(x) {
+
+        function turnRight4(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Right";
+                message001.innerHTML = "You chose to go Right"
                 message002.innerHTML = "Description of turning down the corridor";
                 //choose next direction instead of reloading the page
-                sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
-
-
                 next001.innerHTML = "<button onclick=next()>Continue</button>";
                 //increase progress bar every time the person makes a right move
             }
@@ -89,11 +90,13 @@
         
         function next() {
             //if score goes up, go to next option
-            location.assign("second_page.html");
-            //location.reload();
-        } 
-
-        //need a start over function that assigns the location to the start
+             //make it go one by one since we are having a conversation here
+            //var numbers = [1,2,3,4,5,6,7,8,9];
+            //for(i = 0; i < numbers.length; i++){
+                //question001.innerHTML = texts[i];
+            location.assign("fourth_page.html");
+} 
+        
         
     </script>
 </body>

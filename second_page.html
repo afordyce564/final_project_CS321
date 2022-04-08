@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Froggy Adventure Game</title>
+    <title>Frog Adventure Game</title>
 </head>
 <body>
     <style>
@@ -23,8 +23,8 @@
     </style>
     
     <div id="font001">
-            <text>Score: </text><text id="score001"></text><script>var score = sessionStorage.getItem("Score"); console.log(score);</script><br />
-            <text>Moves: </text><text id="moves001"><script>var moves = sessionStorage.getItem("Moves"); console.log(moves);</script></text><br />
+            <text>Score: </text><text id="score001"></text><br />
+            <text>Moves: </text><text id="moves001"></text><br />
         <div id="disappear001">
             <p id="question001"></p>
             </div>
@@ -35,11 +35,19 @@
 
         <script>
         //score
-        var b = 0;
+        var b = sessionStorage.getItem('Score');
         b++;
         //moves
-        var c = 0;
+        var c = sessionStorage.getItem('Moves');
         c++;
+
+        //should load values from storage session
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#scores001').value = sessionStorage.getItem('Score');
+});
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('#moves001').value = sessionStorage.getItem('Moves');
+        });
 
         //change text up here for initial prompt
         //user will click on the location
@@ -55,8 +63,8 @@
          question001.innerHTML = texts[2];
 
         function turnLeft2(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
+            score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Left";
@@ -72,8 +80,8 @@
         }
 
         function turnRight2(x) {
-            score001.innerHTML = b++;
-            moves001.innerHTML = c++;
+            score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Right"
