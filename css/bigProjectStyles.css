@@ -1,0 +1,17 @@
+body{
+    background-color: greenyellow;
+}
+
+h1 {
+    text-align: center;
+    font-size:5em;
+    padding:.5em;
+    margin-top:1em;
+    color:green;
+}
+
+div.titles {
+    padding:.2em;
+    width: 75%;
+    text-align: center;
+}
