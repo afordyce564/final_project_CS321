@@ -3,9 +3,8 @@
 # if you want to make a new html page for new direction
   index.html is the template
   
-# Change index number to reflect which item in the list you want to display
-     //start game off with first maze picks
-     question001.innerHTML = texts[0];
+#change function names and text in texts[] to reflect direction Frog is going in
+ex. left side and right side -> leftSide(x) and rightSide(x)
   
      
 # Direct to next page
