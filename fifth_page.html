@@ -9,8 +9,8 @@
 <body>
     
     <div id="font001">
-            <text>Score: </text><text id="score001">0</text><br />
-            <text>Moves: </text><text id="moves001">0</text><br />
+            <text>Score: </text><text id="score001"></text><br />
+            <text>Moves: </text><text id="moves001"></text><br />
         <div id="disappear001">
             <h2 id="instruction">Pick a direction</h1>
             <p id="question001"></p>
@@ -21,13 +21,14 @@
         </div>
 
     <script>
- 
-        //score
-        var b = 0;
+        //moves and score move up a point everytime you click correctly
+        var b = sessionStorage.getItem('Score');
         b++;
-        //moves
-        var c = 0;
+        var c = sessionStorage.getItem('Moves');
         c++;
+
+        document.getElementById("score001").innerHTML = b;
+        document.getElementById("moves001").innerHTML = c;
 
         //change text up here for initial prompt
         //user will click on the location
@@ -36,13 +37,13 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text onmousedown=turnLeft1(this)>*Left*</text><text onmousedown=turnRight1(this)>*Right*</text>"
+        var texts = ["<text onmousedown=turnLeft5(this)>*Left*</text><text onmousedown=turnRight5(this)>*Right*</text>"
         ];
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
         
-        function turnLeft1(x) {
+        function turnLeft5(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
@@ -57,7 +58,7 @@
                 //increase progress bar every time the person makes a right move
             }
         }
-        function turnRight1(x) {
+        function turnRight5(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
@@ -76,7 +77,7 @@
         
         function next() {
             //if score goes up, go to next option
-            location.assign("second_page.html");
+            location.assign("sixth_page.html");
             //location.reload();
         } 
 
