@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Froggy Adventure Game</title>
+    <title>Frog Adventure Game</title>
 </head>
 <body>
     <style>
@@ -21,9 +21,10 @@
             cursor: context-menu;
         }
     </style>
+    
     <div id="font001">
             <text>Score: </text><text id="score001">0</text><br />
-            <text>Attempts: </text><text id="attempts001">6</text><br />
+            <text>Moves: </text><text id="moves001">0</text><br />
         <div id="disappear001">
             <p id="question001"></p>
             </div>
@@ -33,28 +34,42 @@
         </div>
 
     <script>
+ 
+        //score
         var b = 0;
         b++;
-        var c = 6;
-        c--;
+        //moves
+        var c = 0;
+        c++;
 
         //change text up here for initial prompt
         //user will click on the location
+
         //change repeat button to next in dialogue 
         //or dialogue choice will become repeat button and advance conversation
       
         var text001 = ["<text onmousedown=iq001(this)>Yesterday was </text><text onmousedown=cq001(this)>wendy</text><text onmousedown=iq001(this)>, but today was beautiful.</text>",
         "<text onmousedown=iq002(this)>I love </text><text onmousedown=cq002(this)>chease</text><text onmousedown=iq002(this)>, I don't mind eating it everyday.</text>",
         "<text onmousedown=iq003(this)>Talk to this person </text><text onmousedown=cq003(this)>Click</text><text onmousedown=iq003(this)>?</text>", "<text onmousedown=iq004(this)>I want to go to</text><text onmousedown=cq004(this)> Park Street</text><text onmousedown=iq004(this)>"
+
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text onmousedown=turnLeft1(this)>Pick a direction *Left*</text><text onmousedown=turnRight1(this)>*Right*</text>"
+
         ];
-        var random001 = Math.floor(Math.random() * text001.length);
 
-        question001.innerHTML = text001[random001];
-
-        function cq001(x) {
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+        function turnLeft1(x) {
             score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
+
                // message001.innerHTML = "Correct";
                 message002.innerHTML = "Yesterday was <font id=green001>windy</font>, and today was beautiful.";
                 next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
@@ -68,13 +83,24 @@
                 //message001.innerHTML = "Incorrect.";
                 message002.innerHTML = "Yesterday was <font id=orange001>windy</font>, and today was beautiful.";
                 next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+
+                message001.innerHTML = "You chose to go Left";
+                message002.innerHTML = "Description of turning down the corridor";
+                
+                sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", c);
+                
+                next001.innerHTML = "<button onclick=next()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+
             }
         }
-
-        function cq002(x) {
+        function turnRight1(x) {
             score001.innerHTML = b;
+            moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
+
                 //message001.innerHTML = "Correct";
                 message002.innerHTML = "I love <font id=green001>cheese</font>, and I don't mind eating it everyday.";
                 next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
@@ -98,8 +124,26 @@
                 //message001.innerHTML = "Correct";
                 message002.innerHTML = "Hello. Where are you trying to <font id=green001>go</font>?";
                 next001.innerHTML = "<button onclick=repeat001()>Repeat</button>";
+
+                message001.innerHTML = "You chose to go Right";
+                message002.innerHTML = "Description of turning down the corridor";
+                //choose next direction instead of reloading the page
+                sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", c);
+
+
+                next001.innerHTML = "<button onclick=next()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+
             }
         }
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("second_page.html");
+            //location.reload();
+        } 
+
 
         function iq003(x) {
             attempts001.innerHTML = c--;
@@ -133,6 +177,9 @@
         function repeat001() {
             location.reload();
         }
+
+        //need a start over function that assigns the location to the start
+        
     </script>
 </body>
 </html>
