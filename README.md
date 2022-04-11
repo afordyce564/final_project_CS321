@@ -2,9 +2,6 @@
 
 # if you want to make a new html page for new direction
   index.html is the template
-  This will be the only item in the texts array 
-  <text onmousedown=turnLeft1(this)>Pick a direction *Left*</text><text onmousedown=turnRight1(this)>*Right*</text>
-  pay attention to where you put the text
   
 # Change index number to reflect which item in the list you want to display
      //start game off with first maze picks
