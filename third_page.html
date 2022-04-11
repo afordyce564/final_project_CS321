@@ -9,10 +9,10 @@
 <body>
     
     <div id="font001">
-            <text>Score: </text><text id="score001"></text><br />
-            <text>Moves: </text><text id="moves001"></text><br />
+            <text>Score: </text><text id="score"></text><br />
+            <text>Moves: </text><text id="moves"></text><br />
         <div id="disappear001">
-            <h2 id="instruction">Pick a direction</h1>
+            <!--2 id="instruction">Do you go</h1-->
             <p id="question001"></p>
             </div>
             <p id="message001"></p>
@@ -23,14 +23,16 @@
     <script>
  
         //score
-        var b = sessionStorage.getItem('Score');
+        var b = 0;
         b++;
         //moves
-        var c = sessionStorage.getItem('Moves');
+        var c = 0;
         c++;
 
-        document.getElementById("score001").innerHTML = b;
-        document.getElementById("moves001").innerHTML = c;
+        //these are to display scores from page to page 
+        document.getElementById("score").innerHTML = b;
+        document.getElementById("moves").innerHTML = c;
+
 
         //change text up here for initial prompt
         //user will click on the location
@@ -39,19 +41,19 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text onmousedown=turnLeft3(this)>*Left*</text><text onmousedown=turnRight3(this)>*Right*</text>"
+        var texts = ["<text>That's right, your lovely pond is nowhere to be seen. Now that the rain has stopped, you best find your way back home. But which way should you go?</text><br> <br><text onmousedown=forwards(this)><b>Forwards</b></text> or <text onmousedown=backwards(this)><b>Backwards</b></text>"
         ];
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
         
-        function turnLeft3(x) {
+        function forwards(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Left";
-                message002.innerHTML = "Description of turning down the corridor";
+                message001.innerHTML = "You chose to go Forwards";
+                message002.innerHTML = "You hop forward and find yourself looking at a tall brick wall that reaches as high as the now blue skies. You can't move forward anymore and you must go back.";
                 
                 sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
@@ -60,13 +62,13 @@
                 //increase progress bar every time the person makes a right move
             }
         }
-        function turnRight3(x) {
+        function backwards(x) {
             score001.innerHTML = b;
             moves001.innerHTML = c;
             if (b > 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Right";
-                message002.innerHTML = "Description of turning down the corridor";
+                message001.innerHTML = "You chose to Backwards ";
+                message002.innerHTML = "You turn around and hop in the direction from which you've came until you reach an intersection. There is a fire hydrant in the distance on the left side and people standing outside a building to your right side.";
                 //choose next direction instead of reloading the page
                 sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
