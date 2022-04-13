@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+</head>
+<body>
+    
+    <div id="font001">
+            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <!--2 id="instruction">Do you go</h1-->
+            <p id="question001"></p>
+            </div>
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="next001"></p>
+        </div>
+
+    <script>
+ 
+        //score
+        var b = 0;
+        
+        //moves
+        var c = 0;
+        
+
+        //these are to display scores from page to page 
+        //document.getElementById("score").innerHTML = b;
+        document.getElementById("moves").innerHTML = c;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>You hop onto a nearby bus, hoping it will lead you home…</text><br> <br>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+      
+         next001.innerHTML = "<button onclick=tooEarly()>Continue</button>";
+         //increase progress bar every time the person makes a right move
+            
+        
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("_page.html");
+            //location.reload();
+        } 
+
+        function tooEarly() {
+            //go to truck shortcut
+            location.assign("tooEarly.html");
+        }
+
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+
