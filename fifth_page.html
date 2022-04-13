@@ -41,36 +41,36 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text>That's right, your lovely pond is nowhere to be seen. Now that the rain has stopped, you best find your way back home. But which way should you go?</text><br> <br><text onmousedown=forwards(this)><b>Forwards</b></text> or <text onmousedown=backwards(this)><b>Backwards</b></text>"
+        var texts = ["<text>You\'ve made it this far, you can see the &quot;light at the end of the tunnel,&quot; or wait, IT\'S A BIG TRUCK!! What do you do?!</text><br> <br><text onmousedown=forwards(this)><b>Jump</b></text> or <text onmousedown=backwards(this)><b>Dodge</b></text>"
         ];
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
         
         function forwards(x) {
-            score.innerHTML = b--;
+            //score.innerHTML = b--;
             moves.innerHTML = c++;
             if (c >= 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Forwards";
-                message002.innerHTML = "You hop forward and find yourself looking at a tall brick wall that reaches as high as the now blue skies. You can't move forward anymore and you must go back.";
+                message001.innerHTML = "You chose to jump";
+                message002.innerHTML = "You JUMP up into the truck, careful not to hit anything hot that may burn you, or worse… kill you! ";
                 
-                sessionStorage.setItem("Score", b);
+                //sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
                 
-                next001.innerHTML = "<button onclick=back()>Choose again</button>";
+                next001.innerHTML = "<button onclick=shortCut()>Stay Put</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
         function backwards(x) {
-            score.innerHTML = b++;
+            //score.innerHTML = b++;
             moves.innerHTML = c++;
             if (c >= 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Backwards ";
-                message002.innerHTML = "";
+                message001.innerHTML = "You chose to dodge the truck. ";
+                message002.innerHTML = "You play a little game of frogger, but in this case, it\'s not a game, your life is at stake! You successfully dodge the truck\'s menacing tires and safely make it to the grass. Whew… that was close!";
                 //choose next direction instead of reloading the page
-                sessionStorage.setItem("Score", b);
+                //sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
 
 
@@ -78,18 +78,17 @@
                 //increase progress bar every time the person makes a right move
             }
         }
-
-
-         //go back to choice if you mess up
-         function back(){
-            location.assign("fourth_page.html");
-        }
         
         function next() {
             //if score goes up, go to next option
             location.assign("sixth_page.html");
             //location.reload();
         } 
+
+        function shortCut() {
+            //go to truck shortcut
+            location.assign("short_cut6.html");
+        }
 
 
         //need a start over function that assigns the location to the start
