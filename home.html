@@ -5,7 +5,13 @@
     <meta charset="utf-8" />
     <title>Home</title>
 
-    <link rel="stylesheet" href="css/homeStyles.css">
+    <link rel="stylesheet" href="homeStyles.css">
+
+    <script>
+       //add story page link where index.html is
+       //also add credits page or pop up ???
+         function nextPage(){location.assign("index.html");}
+    </script>
 
 </head>
 <body>
@@ -21,8 +27,8 @@
     <div class="titles">
         <h1>Leap Frog</h1>
         <div id="titlebutts">
-            <button class="startPage" >Start</button> <br>
-            <button class="startPage">Credits</button>
+            <button class="startPage" onclick="nextPage()">Start</button> <br>
+            <button class="startPage" onclick="">Credits</button>
         </div>
         </div>
 

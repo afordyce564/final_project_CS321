@@ -30,7 +30,7 @@
         
 
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
+       // document.getElementById("score").innerHTML = b;
         document.getElementById("moves").innerHTML = c;
 
 
@@ -41,7 +41,7 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text>That's right, your lovely pond is nowhere to be seen. Now that the rain has stopped, you best find your way back home. But which way should you go?</text><br> <br><text onmousedown=forwards(this)><b>Forwards</b></text> or <text onmousedown=backwards(this)><b>Backwards</b></text>"
+        var texts = ["<text>Do you run back to the squirrel for better directions, or fight the chihuahua and attempt to pass him?</text><br> <br><text onmousedown=forwards(this)><b>Run back</b></text> or <text onmousedown=backwards(this)><b>Fight</b></text>"
         ];
 
         //start game off with first maze picks
@@ -52,13 +52,13 @@
             moves.innerHTML = c++;
             if (c >= 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go Forwards";
+                message001.innerHTML = "You chose to go Run Back";
                 message002.innerHTML = "You hop forward and find yourself looking at a tall brick wall that reaches as high as the now blue skies. You can't move forward anymore and you must go back.";
                 
                 //sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
                 
-                next001.innerHTML = "<button onclick=back()>Choose again</button>";
+                next001.innerHTML = "<button onclick=next()>Continue</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
@@ -67,14 +67,15 @@
             moves.innerHTML = c++;
             if (c >= 0) {
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You choose to go backwards.";
+                message001.innerHTML = "You chose to fight the chihuahua.";
+                message002.innerHTML = "You made it past the ferocious chihuahua! Your on the right track!";
                 message002.innerHTML = "";
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
                 sessionStorage.setItem("Moves", c);
-                
-                //add styling to this element
-                next001.innerHTML = "<button onclick=next()>Continue</button>";
+
+
+                next001.innerHTML = "<button onclick=next()>Onwards!</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
@@ -82,16 +83,17 @@
 
          //go back to choice if you mess up
          function back(){
-            location.assign("index.html");
+            location.assign("second_page.html");
         }
         
         function next() {
             //if score goes up, go to next option
-            location.assign("second_page.html");
+            // left will continue the main path 
+            //right will continue on it's own path
+            location.assign("fourth_page.html");
             //location.reload();
         } 
-        
-        //progress bar down here
+
 
 
         //need a start over function that assigns the location to the start
