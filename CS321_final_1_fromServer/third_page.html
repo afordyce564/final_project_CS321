@@ -75,7 +75,7 @@
 
 
         function forwards(x) {
-            if (move_count >= 0) {
+            if (move_count >= -5) {
                 moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go Left";
@@ -88,7 +88,7 @@
             }
         }
         function backwards(x) {
-            if (move_count >= 0) {
+            if (move_count >= -4) {
                 moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "The goose is very bad at directions, so he meant to say left. Suddenly, you encounter an angry chihuahua!";

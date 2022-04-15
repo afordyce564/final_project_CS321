@@ -102,12 +102,12 @@
                 
                 sessionStorage.setItem("Moves", move_count);
 
-                next001.innerHTML = "<button class='butts' onclick=next(); move();>Return</button>";
+                next001.innerHTML = "<button class='butts' onclick=back(); move();>Return</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
         function backwards(x) {
-            if (move_count >= 0) {
+            if (move_count >= -4) {
                 moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You choose to go backwards.";
@@ -125,7 +125,7 @@
 
          //go back to choice if you mess up
          function back(){
-            location.assign("index.html");
+            location.assign("story2.html");
         }
         
         function next() {

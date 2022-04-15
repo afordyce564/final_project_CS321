@@ -31,7 +31,7 @@
     <script>
  
     //moves are not displaying properly
-        var move_count = localStorage.getItem("Moves");
+        var move_count = sessionStorage.getItem("Moves");
         console.log(move_count);
         
         //these are to display scores from page to page 
@@ -53,8 +53,8 @@
         question005.innerHTML = texts[4];
 
         function forwards(x) {
-            if (move_count >= 0) {
-                moves.innerHTML = move_count--;
+            if (move_count >= -5) {
+                moves.innerHTML = move_count-1;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go left.";
                 message002.innerHTML = "Wrong way, turn back";
@@ -66,7 +66,7 @@
             }
         }
         function backwards(x) {
-            if (move_count > 0) {
+            if (move_count >= -4) {
                 moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go right.";

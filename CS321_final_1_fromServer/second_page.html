@@ -86,7 +86,7 @@
         question002.innerHTML = texts[1];
         
         function forwards(x) {
-            if (move_count >= 0) {
+            if (move_count >= -5) {
                 moves.innerHTML = move_count ;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose to go to the left side.";
@@ -101,7 +101,7 @@
             }
         }
         function backwards(x) {
-            if (move_count >= 0) {
+            if (move_count >= -4) {
                 moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "As you hop to the right, you get closer to the people and closer to their feet. You must be careful going forward.";

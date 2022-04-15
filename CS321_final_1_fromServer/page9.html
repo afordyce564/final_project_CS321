@@ -28,25 +28,25 @@
             <p id="question001"></p>
             <p id="question002"></p>
             </div>
+            <div id="afterclick"></div>
             <p id="message001"></p>
             <p id="message002"></p>
             <p id="next001"></p>
+        </div>
         </div>
         </div>
 	</div>
 
     <script>
  
-        //score
-        var b = 0;
-        
-        //moves
-        var c = 0;
+       
+         //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
         
 
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
+        document.getElementById("moves").innerHTML = move_count;
 
 
         //change text up here for initial prompt
@@ -65,14 +65,14 @@
         
         function flight(x) {
             //score.innerHTML = b++;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            moves.innerHTML = move_count++;
+            if (move_count >= -5) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You dodge the hand reaching towards you and you abandon your travels to the right.";
                 message002.innerHTML = "You flee to the left towards the fire hydrant.";
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
                 
                 //add styling to this element
                 next001.innerHTML = "<button class='butts' onclick=flightChoice()>Flee</button>";
@@ -80,15 +80,14 @@
             }
         }
         function fight(x) {
-            //score.innerHTML = b++;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            moves.innerHTML = move_count++;
+            if (move_count >= -4) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "<text>You freeze and are unable to dodge the incoming hand. You are at the mercy of the person who has grabbed you.</text>";
                 message002.innerHTML = "";
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
                 
                 //add styling to this element
                 next001.innerHTML = "<button class='butts' onclick=fightChoice()>Struggle</button>";

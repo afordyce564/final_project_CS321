@@ -58,7 +58,7 @@
         //start game off with first maze picks
         question001.innerHTML = texts[0];
 
-        moves.innerHTML = move_count+0;
+        moves.innerHTML = move_count;
 
         sessionStorage.setItem("Moves", move_count);
             
@@ -70,7 +70,7 @@
             location.assign("tooEarly.html");
         }
           //progress bar test
-          var i = move_count;
+        var i = move_count;
         function move() {
           if (i == 0) {
             i = move_count;

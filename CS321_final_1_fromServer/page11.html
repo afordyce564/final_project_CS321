@@ -43,16 +43,14 @@
     <script>
  
 
-        //score
-        var b = 0;
         
-        //moves
-        var c = 0;
+         //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
         
 
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
+        document.getElementById("moves").innerHTML = move_count;
 
 
         //change text up here for initial prompt
@@ -70,14 +68,14 @@
         
         function wait(x) {
             //score.innerHTML = b++;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            moves.innerHTML = move_count++;
+            if (move_count >= -5) {
                 disappear001.innerHTML = "";
                 message001.innerHTML = "...";
                 message002.innerHTML = "";
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
                 
                 //add styling to this element
                 next001.innerHTML = "<button class='butts' onclick=next()>...</button>";
