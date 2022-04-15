@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="css/homeStyles.css">
+    <link rel="stylesheet" href="css/splashStyles.css">
+    <style>
+        body {background-image: url(images/home.jpg);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/home.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+       //add story page link where index.html is
+       //also add credits page or pop up ???
+         function nextPage(){location.assign("index.html");}
+    </script>
+
+</head>
+<body>
+  <div class="audplayer">
+  <audio controls autoplay>
+      <source style="float:left;" src="hooray.mp3" type="audio/mp3">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
+  <h1>Hooray!</h1>
+     <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     <img style="width:15%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     <img style="width:15%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+     
+     <br><br><br><br><br><br><br><br><br>
+     <button class="startPage" onclick="credits()">Credits</button>
+
+<script>
+    function credits() {
+            location.assign("credits.html");
+            //location.reload();
+        }
+</script>
+
+</body>
+</html>

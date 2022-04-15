@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/Sidewalk.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/Sidewalk.PNG);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    <div id="font001">
+        <text id ="movestext">Moves: </text><text id="moves"></text><br />
+    <div id="disappear001">
+        <p id="question001"></p>
+        <p id="question002"></p>
+        <p id="question003"></p>
+        <p id="question004"></p>
+        <h3 id="question005"></h3>
+        </div>
+        <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+
+    <div id="afterclick">
+        <p id="message001"></p>
+        <p id="message002"></p>
+        <p id="message003"></p>
+        <p id="message004"></p>
+        <h3 id="next001"></h3>
+        </div>
+    </div>
+    </div>
+
+    <script>
+ 
+        //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
+        //c++
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>As you continue on your journey back home, you catch a scent of something delicious.</text>","<text>First you smell something savory, like a pizza…</text>","<text>but then you begin to smell the sweet aromas of a strawberry.</text>","<text>Do you wish to look for the strawberry or the pizza?</text>","<br> <br><text onmousedown=forwards(this)><b>Strawberry</b></text> or <text onmousedown=backwards(this)><b>Pizza</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        question003.innerHTML = texts[2];
+        question004.innerHTML = texts[3];
+        question005.innerHTML = texts[4];
+        
+        function forwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose the strawberry";
+                message002.innerHTML = "Following the sweet scents of the strawberries, you come across a small patch of fairy strawberries, as you walk through,";
+                message003.innerHTML = "You grab a few to eat…";
+                message004.innerHTML = "This gives you more energy to continue your journey.";
+                
+                sessionStorage.setItem("Moves", move_count);
+                
+                next001.innerHTML = "<button class='butts' onclick=next()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function backwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count--;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose pizza ";
+                message002.innerHTML = "You head in the direction of the pizza, and after a few minutes you don\'t know where you are… ";
+                message003.innerHTML = "There are tall buildings and legs EVERYWHERE… You\'re LOST! Turn back."
+               
+                //choose next direction instead of reloading the page
+                //sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", move_count);
+
+
+                next001.innerHTML = "<button class='butts' onclick=back()>Choose again</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+
+
+         //go back to choice if you mess up
+         function back(){
+            location.assign("fourth_page.html");
+            var move_count = sessionStorage.getItem("Moves");
+            sessionStorage.setItem("Moves", move_count);
+
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("fifth_page.html");
+            //location.reload();
+        } 
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+

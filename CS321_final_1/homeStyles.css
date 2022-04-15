@@ -1,0 +1,382 @@
+body{
+   background-color: lightgreen;
+   background-image: url('../images/home.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
+h1 {
+   text-align: center;
+   font-size:5em;
+   padding:.5em;
+   margin-top:1em;
+   color:green;
+   background-color: #add8e6;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#question005{
+  text-align: left;
+}
+
+div.titles {
+   padding:.2em;
+   width: 75%;
+   margin: auto;
+}
+
+button.startPage {
+   background-color: green;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 1.5em;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   margin:.5em;
+   width: 10em;
+}
+
+button.startPage:hover {background-color: #3e8e41}
+
+button.startPage:active {
+ background-color: #3e8e41;
+ box-shadow: 0 5px #666;
+ transform: translateY(4px);
+}
+
+#titlebutts {
+   text-align: center;
+}
+
+div.audplayer{
+   text-align: right;
+}
+audio {
+   text-align: right;
+   width: 7em;
+}
+
+#movestext, #moves{ 
+  font-size: 48px;
+  color: #3e8e41;
+}
+
+
+#disappear001, #message001, #message002 { 
+   font-size: 24px;
+   text-align: left;
+}
+
+#next001 {
+   text-align: left;
+   font-size: 24px;
+}
+
+/* ANIMATION */
+
+#disappear001 p {
+   border-style: 1em solid;
+   border-color: lightgreen;
+   font-family: "Courier";
+   font-size: 18px;
+   white-space: nowrap;
+   overflow: hidden;
+   width: 80em;
+   padding: 10px;
+   text-align: left;
+   padding-top: 20px;
+   word-break: break-all;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+ }
+ #disappear001 p:nth-child(1) {
+   width: 80em;
+   -webkit-animation: type3 2s steps(40, end);
+   animation: type3 2s steps(40, end);
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ #disappear001 p:nth-child(2) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(40, end);
+   animation: type3 2s steps(40, end);
+   -webkit-animation-delay: 2s;
+   animation-delay: 2s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ #disappear p:nth-child(3) {
+  width: 80em;
+  opacity: 0;
+  -webkit-animation: type3 2s steps(40, end);
+  animation: type3 2s steps(40, end);
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  padding-top: 20px;
+  word-break: break-all;
+ }
+
+ #afterclick p {
+   border-style: 1em solid;
+   border-color: lightgreen;
+   font-family: "Courier";
+   font-size: 18px;
+   white-space: nowrap;
+   overflow: hidden;
+   width: 80em;
+   padding: 10px;
+   text-align: left;
+   padding-top: 20px;
+   word-break: break-all;
+    -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+}
+
+#afterclick p:nth-child(1) {
+  width: 80em;
+  opacity: 0;
+  -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+  animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  padding-top: 20px;
+  word-break: break-all;
+}
+
+#afterclick p:nth-child(2) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+
+ .afterclick p :nth-child(3) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ @keyframes type {
+   0% {
+     width: 0;
+   }
+   99.9% {
+     border-right: .15em solid lightgreen;
+   }
+   100% {
+     border: none;
+   }
+ }
+ 
+ @-webkit-keyframes type {
+   0% {
+     width: 0;
+   }
+   99.9% {
+     border-right: .15em solid lightgreen;
+   }
+   100% {
+     border: none;
+   }
+ }
+ 
+ @keyframes type2 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   99.9% {
+     border-right: .15em solid lightgreen;
+   }
+   100% {
+     opacity: 1;
+     border: none;
+   }
+ }
+ 
+ @-webkit-keyframes type2 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   99.9% {
+     border-right: .15em solid lightgreen;
+   }
+   100% {
+     opacity: 1;
+     border: none;
+   }
+ }
+ 
+ @keyframes type3 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ @-webkit-keyframes type3 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ @keyframes blink {
+   50% {
+     border-color: transparent;
+   }
+ }
+ @-webkit-keyframes blink {
+   50% {
+     border-color: tranparent;
+   }
+ }
+
+ /* PROGRESS BAR */
+ #myProgress {
+  height: 30px;
+  width: 100%;
+  background-color: grey;
+  border-style: solid;
+  border-color: black;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+
+/*Alert button styling*/
+#confirm {
+  display: none;
+  background-color: darkgreen;
+  color: lightgreen;
+  border: none;
+  border-radius: 12px;
+  position: fixed;
+  width: 300px;
+  height: 9em;
+  left: 40%;
+  top: 40%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2em;
+}
+#confirm button {
+  background-color: rgb(8, 54, 22);
+  color:white;
+  display: inline-block;
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  width: 60px;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#confirm button:hover {
+  background-color: lightgreen;
+  color:black;
+}
+
+#confirm button:active {
+  background-color: lightgreen;
+  box-shadow: rgb(8, 54, 22);
+  transform: translateY(4px);
+}
+
+
+#confirm .message {
+  text-align: center;
+}
+
+button.butts {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  margin:.5em;
+  width: 10em;
+}
+
+button.butts:hover {
+  background-color: #3e8e41
+}
+
+button.butts:active {
+background-color: #3e8e41;
+box-shadow: 0 5px rgb(8, 54, 22);
+transform: translateY(4px);
+}
+
+div #font001{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
+  padding: 2em;
+  margin: 2em;
+}

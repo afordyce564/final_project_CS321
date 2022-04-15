@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    
+    <div id="font001">
+           
+        <text id ="movestext">Moves: </text><text id="moves"></text><br />
+        <div id="disappear001">
+            <p id="question001"></p>
+            <h3 id="question002"></h3>
+            </div>
+            <img style="width:15%; float: right;margin-right:2em;" src="images/Goose.PNG" alt="a drawing of a goose">
+            <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+            <img style="width:15%; float: right;margin-right:2em;" src="images/SaneSquirrel.PNG" alt="a drawing of a squirrel">
+        <div id="afterclick">
+                <p id="message001"></p>
+                <p id="message002"></p>
+                <h3 id="next001"></h3>
+                </div>
+    </div>
+    </div>
+
+    <script>
+        
+        //moves
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>The goose tells you to take a right, but the squirrel tells you to go left.</text>","<br><text onmousedown=forwards(this)><b>Left</b></text> or <text onmousedown=backwards(this)><b>Right</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+
+        function forwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to go Left";
+                message002.innerHTML = "You think you can smell a hint of pond water, and know you\'re in the right direction!";
+                
+                sessionStorage.setItem("Moves", move_count);
+                
+                next001.innerHTML = "<button class='butts' onclick=next()>Keep Going</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function backwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count--;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "The goose is notoriously bad at directions, he meant to say left. As you continue on, you encounter an angry chihuahua! OH NO, WHAT DO YOU DO???";
+                message002.innerHTML = "";
+                //choose next direction instead of reloading the page
+                sessionStorage.setItem("Moves", move_count);
+
+
+                next001.innerHTML = "<button class='butts' onclick=goosePath()>AAAA</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+
+
+         //go back to choice if you mess up
+         function back(){
+            location.assign("second_page.html");
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            // left will continue the main path 
+            //right will continue on it's own path
+            location.assign("fourth_page.html");
+            //location.reload();
+        } 
+
+        function goosePath() {
+            //if score goes up, go to next option
+            // left will continue the main path 
+            //right will continue on it's own path
+            location.assign("goose_bad_direction.html");
+            //location.reload();
+        } 
+
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+

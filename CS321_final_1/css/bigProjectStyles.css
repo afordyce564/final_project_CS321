@@ -1,0 +1,83 @@
+body{
+    background-color: greenyellow;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size:5em;
+    padding:.5em;
+    margin-top:1em;
+    color:green;
+    background-color: #add8e6;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#confirm {
+    display: none;
+    background-color: darkgreen;
+    color: lightgreen;
+    border: none;
+    border-radius: 12px;
+    position: fixed;
+    width: 300px;
+    height: 9em;
+    left: 40%;
+    top: 40%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2em;
+ }
+ #confirm button {
+    background-color: rgb(8, 54, 22);
+    color:white;
+    display: inline-block;
+    border-radius: 12px;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    width: 60px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+ #confirm button:hover {
+    background-color: lightgreen;
+    color:black;
+ }
+
+ #confirm button:active {
+    background-color: lightgreen;
+    box-shadow: rgb(8, 54, 22);
+    transform: translateY(4px);
+ }
+
+
+ #confirm .message {
+    text-align: center;
+ }
+
+ button.butts {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    margin:.5em;
+    width: 10em;
+}
+
+button.butts:hover {
+    background-color: #3e8e41
+}
+
+button.butts:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px rgb(8, 54, 22);
+  transform: translateY(4px);
+}

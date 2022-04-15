@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/Brickwall.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/Brickwall.PNG);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    
+    <div id="font001">
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <p id="question001"></p>
+            <p id="question002"></p>
+            <h3 id="question004"><button class='butts' onclick=next(); move();>Oh no</button></h3>
+            </div>
+    </div>
+        
+    <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+    </div>
+
+    <script>
+ 
+        
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+
+
+        var texts = ["<text>You are a frog............. ribbit</text>", "<text>After a large rainfall, you find that you have hopped far away from your pond. </text>"
+        ];
+
+        var move_count = 0;
+        console.log(move_count);
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+
+        //if (sessionStorage) { // Browser supports it
+            //sessionStorage.someKeyName = document.getElementById("moves").innerHTML;//}
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        question003.innerHTML = texts[2];
+        question004.innerHTML = texts[3];
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+        
+        
+
+        function next() {
+            //if score goes up, go to next option
+            location.assign("index.html");
+            //location.reload();
+        } 
+        
+
+
+        //progress bar down here
+        
+    </script>
+</body>
+</html>
+
