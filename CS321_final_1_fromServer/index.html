@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="css/splashStyles.css">
+    <style>
+        body {background-image: url(images/home.jpg);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/home.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="audplayer">
+        <audio controls autoplay loop>
+            <source src="audio/frognoises.wav" type="audio/wav">
+            Your browser does not support the <code>audio</code> element.
+          </audio>
+    </div>
+
+    <div class="titles">
+        <h1>Leap Frog</h1>
+        <div id="titlebutts">
+            <button class="startPage" onclick="nextPage()">Start</button> <br>
+            <button class="startPage" onclick="credits()">Credits</button>
+        </div>
+        </div>
+<script>
+    function nextPage() {
+            location.assign("story.html");
+            //location.reload();
+        } 
+    function credits() {
+            location.assign("credits.html");
+            //location.reload();
+        }
+</script>
+
+</body>
+</html>

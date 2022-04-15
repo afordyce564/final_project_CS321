@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<!-- this page is for the shortcut for the truck -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/Park_2.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/Undercarriage_frog.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+
+    <div id="font001">
+            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <!--2 id="instruction">Do you go</h1-->
+            <p id="question001"></p>
+            </div>
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="next001"></p>
+        </div>
+        </div>
+
+    <script>
+ 
+       //moves are not displaying properly
+       var move_count = localStorage.getItem("Moves");
+       console.log(move_count);
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>You can see your home!! You made it home safe! You jump off the truck and hop towards your home!</text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+
+        moves.innerHTML = move_count+1;
+
+        sessionStorage.setItem("Moves", move_count);
+
+        next001.innerHTML = "<button class='butts' onclick=next()>Continue</button>";
+        
+      
+        function next() {
+            //if score goes up, go to next option
+            location.assign("end.html");
+            //location.reload();
+        } 
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+
+    <div id="font001">
+            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
+            <text id ="movestext">Moves: </text><text id="moves"></text><br />
+        <div id="disappear001">
+            <!--2 id="instruction">Do you go</h1-->
+            <p id="question001"></p>
+            </div>
+            <img style="width:30%; float: right;margin-right:2em;" src="images/Dog.PNG" alt="a drawing of a dog">
+        <div id="afterclick">
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="message003"></p>
+            <h3 id="next001"></h3>
+            </div>
+        </div>
+
+    <script>
+ 
+        //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
+
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>Do you run back to the squirrel for better directions, or fight the chihuahua and attempt to pass him?</text><br> <br><text onmousedown=forwards(this)><b>Run back</b></text> or <text onmousedown=backwards(this)><b>Fight</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+        function forwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to go Run Back";
+                message002.innerHTML = "You turn back to go in the other direction.";
+                
+                sessionStorage.setItem("Moves", move_count);
+                
+                next001.innerHTML = "<button class='butts' onclick=next()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function backwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to fight the chihuahua.";
+                message002.innerHTML = "You made it past the ferocious chihuahua! Your on the right track!";
+                message002.innerHTML = "";
+                //choose next direction instead of reloading the page
+                //sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", move_count);
+
+
+                next001.innerHTML = "<button class='butts' onclick=next()>Onwards!</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+
+
+         //go back to choice if you mess up
+         function back(){
+            location.assign("second_page.html");
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            // left will continue the main path 
+            //right will continue on it's own path
+            location.assign("fourth_page.html");
+            //location.reload();
+        } 
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+

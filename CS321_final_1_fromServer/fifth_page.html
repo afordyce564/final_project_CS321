@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/Truck_Lights.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/Truck_Lights.PNG);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    <div id="font001">
+            <text id ="movestext">Moves: </text><text id="moves"></text><br />
+        <div id="disappear001">
+            <p id="question001"></p>
+            </div>
+        <div id="afterclick">
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="message003"></p>
+            <h3 id="next001"></h3>
+        </div>
+        </div>
+        </div>
+
+    <script>
+ 
+        
+       //moves are not displaying properly
+       var move_count = sessionStorage.getItem("Moves");
+       console.log(move_count);
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>You\'ve made it this far, you can see the &quot;light at the end of the tunnel,&quot; or wait, IT\'S A BIG TRUCK!! What do you do?!</text><br> <br><text onmousedown=forwards(this)><b>Jump</b></text> or <text onmousedown=backwards(this)><b>Dodge</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+        function forwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to jump";
+                message002.innerHTML = "You JUMP up into the truck, careful not to hit anything hot that may burn you, or worse… kill you! ";
+                
+                sessionStorage.setItem("Moves", move_count);
+                
+                next001.innerHTML = "<button class='butts' onclick=shortCut()>Stay Put</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function backwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to dodge the truck.";
+                message002.innerHTML = "You play a little game of frogger, but in this case, it\'s not a game, your life is at stake!";
+                message003.innerHTML = "You successfully dodge the truck\'s menacing tires and safely make it to the grass. Whew… that was close!";
+                //choose next direction instead of reloading the page
+                sessionStorage.setItem("Moves", move_count);
+
+
+                next001.innerHTML = "<button class='butts' onclick=next()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("sixth_page.html");
+            //location.reload();
+        } 
+
+        function shortCut() {
+            //go to truck shortcut
+            location.assign("short_cut6.html");
+        }
+
+          //progress bar test
+          var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
+

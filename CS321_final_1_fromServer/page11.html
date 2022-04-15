@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/In_Cup.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/In_Cup.PNG);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    <div id="font001">
+            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <!--2 id="instruction">Do you go</h1-->
+            <p id="question001"></p>
+            </div>
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="next001"></p>
+        </div>
+        </div>
+
+        <div id="confirm">
+            <div class="message">You try to hop and only hit the ceiling of the container.</div><br>
+            <button class="yes">OK</button>
+         </div>
+        <!-- <input type="button" value="Click Me" onclick="hop();">-->
+
+    <script>
+ 
+
+        //score
+        var b = 0;
+        
+        //moves
+        var c = 0;
+        
+
+        //these are to display scores from page to page 
+        //document.getElementById("score").innerHTML = b;
+        document.getElementById("moves").innerHTML = c;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>You find yourself in a dark container. </text><br> <br><text onmousedown=hop()><b>Try to hop</b></text> or <text onmousedown=wait(this)><b>wait for death</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+        function wait(x) {
+            //score.innerHTML = b++;
+            moves.innerHTML = c++;
+            if (c >= 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "...";
+                message002.innerHTML = "";
+                //choose next direction instead of reloading the page
+                //sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", c);
+                
+                //add styling to this element
+                next001.innerHTML = "<button class='butts' onclick=next()>...</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("page12.html");
+            //location.reload();
+        } 
+        
+        function hop(msg, myYes) {
+            var confirmBox = $("#confirm");
+            confirmBox.find(".message").text(msg);
+            confirmBox.find(".yes").unbind().click(function() {
+               confirmBox.hide();
+            });
+            confirmBox.find(".yes").click(myYes);
+            confirmBox.show();
+         }
+
+        //progress bar down here
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>

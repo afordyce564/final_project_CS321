@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang=’en’>
+
+<head>
+<meta charset="UTF-8">
+    <title>Form Validation: Team 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        var i = 0;
+        var txt = 'Lorem ipsum dummy text blabla.';
+        var speed = 50;
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("demo").innerHTML += txt.charAt(i); i++; setTimeout(typeWriter, speed);
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    
+    <h1>Typewriter</h1>
+    <button onclick="typeWriter()">Click me</button>
+    <p id="demo"></p>
+  
+</body>
+
+</html>
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+<!DOCTYPE html>
+<html lang=’en’>
+
+<head>
+<meta charset="UTF-8">
+    <title>Typewriter Animation</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body>
+    
+    <div class="typewriter">
+        <h1>Some text will go here, it will start when the user enters the new page.</h1>  
+    </div>
+    
+</body>
+
+</html>
+
+
+
+/* GLOBAL STYLES */
+body {
+  background: #333;
+  padding-top: 5em;
+  display: flex;
+  justify-content: center;
+}
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  color: #fff;
+  font-family: sans-serif;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+  width: 75%;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+<!DOCTYPE html>
+<html lang=’en’>
+
+<head>
+<meta charset="UTF-8">
+    <title>Typewriter Animation</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body>
+    
+    <div class="typewriter">    
+        <div class="wrapper">
+            <p class="line__1">If at first you don't succeed, </p>
+            <p class="line__2">call it version 1.0</p>
+        </div>    
+    </div>
+    
+</body>
+
+</html>
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+
+html {
+  height: 100%;
+  width: 100%;
+  background: #111;
+  color: #00cc44;
+  font-family: "Major Mono Display", monospace;
+}
+
+.wrapper {
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.line__1,
+.line__2 {
+  white-space: nowrap; /* keep text in one line */
+  overflow: hidden; /* hide text behind the cursor */
+  margin: 0.5rem auto;
+  font-family: "Major Mono Display", monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.line__1 {
+  border-right: 2px solid rgba(17, 17, 17, 0.9);
+
+  /* define animation types for text + cursor */
+  animation: animated-text__1 6s steps(30, end) 1s 1 normal both,
+    animated-cursor__1 900ms steps(30, end) 8;
+}
+
+.line__2 {
+  border-right: 2px solid rgba(17, 17, 17, 0.9);
+
+  /* define animation types for text + cursor */
+  animation: animated-text__2 5s steps(30, end) 1s 1 normal both,
+    animated-cursor__2 900ms steps(30, end) infinite;
+  -webkit-animation-delay: 7s;
+  animation-delay: 7s;
+}
+
+@keyframes animated-cursor__1 {
+  from {
+    border-right-color: rgba(17, 17, 17, 0.9);
+  }
+  to {
+    border-right-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes animated-cursor__2 {
+  from {
+    border-right-color: rgba(17, 17, 17, 0.9);
+  }
+  to {
+    border-right-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes animated-text__1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 45rem;
+  }
+}
+
+@keyframes animated-text__2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 29rem;
+  }
+}

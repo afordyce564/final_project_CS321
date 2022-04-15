@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="homeStyles.css">
+    <style>
+        body {background-image: url(images/Brickwall.PNG);}
+        @media screen and (max-width: 800px) {
+            body {
+                background-image: url(mobile_images/Brickwall.PNG);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    
+    <div id="font001">
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <p id="question001"></p>
+            <p id="question002"></p>
+            <p id="question003"></p>
+            <h3 id="question004"></h3>
+            </div>
+        <div id="afterclick">
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="message003"></p>
+            <h3 id="next001"></h3>
+            </div>
+        </div>
+
+        <img style="width:10%; float: right;margin-right:2em;" src="images/Main_Frog.PNG" alt="a small drawing of a frog">
+
+        </div>
+
+    <script>
+ 
+        
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+
+
+        var texts = ["<text>That's right, your lovely pond is nowhere to be seen.</text>", "<text>Now that the rain has stopped, you best find your way back home.</text>","<text>But which way should you go?</text>","<text onmousedown=forwards(this)><b>Forwards</b></text> or <text onmousedown=backwards(this)><b>Backwards</b></text>"
+        ];
+
+        var move_count = 0;
+        console.log(move_count);
+        
+        //these are to display scores from page to page 
+        document.getElementById("moves").innerHTML = move_count;
+
+
+        //if (sessionStorage) { // Browser supports it
+            //sessionStorage.someKeyName = document.getElementById("moves").innerHTML;//}
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        question003.innerHTML = texts[2];
+        question004.innerHTML = texts[3];
+
+        //progress bar test
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
+
+        function forwards(x) {
+            if (move_count > -5) {
+                moves.innerHTML = move_count++ ;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You chose to go forwards";
+                message002.innerHTML = "You hop forward and find yourself looking at a tall brick wall that reaches as high as the now blue skies.";
+                message003.innerHTML = "You can't move forward anymore and you must go back.";
+                
+                sessionStorage.setItem("Moves", move_count);
+
+                next001.innerHTML = "<button class='butts' onclick=next(); move();>Return</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function backwards(x) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You choose to go backwards.";
+                message002.innerHTML = "You turn around and hop in the direction from which you've came until you reach an intersection.";
+                message003.innerHTML = "There is a fire hydrant the left side and people standing outside a building to your right side.";
+                //choose next direction instead of reloading the page
+                
+                sessionStorage.setItem("Moves", move_count);
+
+                //add styling to this element
+                next001.innerHTML = "<button class='butts' onclick=next(); move();>Think</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+
+         //go back to choice if you mess up
+         function back(){
+            location.assign("index.html");
+        }
+        
+        function next() {
+            //if score goes up, go to next option
+            location.assign("second_page.html");
+            //location.reload();
+        } 
+        
+
+
+        //progress bar down here
+        
+    </script>
+</body>
+</html>
+
