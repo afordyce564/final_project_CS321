@@ -24,16 +24,12 @@
 
     <script>
  
-        //score
-        var b = 0;
+       //moves are not displaying properly
+       var move_count = localStorage.getItem("Moves");
+       console.log(move_count);
         
-        //moves
-        var c = 0;
-        
-
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
+        document.getElementById("moves").innerHTML = move_count;
 
 
         //change text up here for initial prompt
@@ -48,6 +44,10 @@
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
+
+        moves.innerHTML = move_count+1;
+
+        sessionStorage.setItem("Moves", move_count);
 
         next001.innerHTML = "<button onclick=next()>Continue</button>";
         

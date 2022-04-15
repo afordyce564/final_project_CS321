@@ -9,29 +9,32 @@
 <body>
     
     <div id="font001">
-            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
-            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
-        <div id="disappear001">
-            <!--2 id="instruction">Do you go</h1-->
-            <p id="question001"></p>
-            </div>
-            <p id="message001"></p>
-            <p id="message002"></p>
-            <p id="next001"></p>
+        <text id ="movestext">Moves: </text><text id="moves"></text><br />
+    <div id="disappear001">
+        <p id="question001"></p>
+        <p id="question002"></p>
+        <p id="question003"></p>
+        <p id="question004"></p>
+        <h3 id="question005"></h3>
         </div>
+    <div id="afterclick">
+        <p id="message001"></p>
+        <p id="message002"></p>
+        <p id="message003"></p>
+        <p id="message004"></p>
+        <h3 id="next001"></h3>
+        </div>
+    </div>
 
     <script>
  
-        //score
-        var b = 0;
+        //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
+        //c++
         
-        //moves
-        var c = 0;
-        
-
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
+        document.getElementById("moves").innerHTML = move_count;
 
 
         //change text up here for initial prompt
@@ -41,38 +44,42 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text>As you continue on your journey back home, you catch a scent of something delicious. First you smell something savory, like a pizza… but then you begin to smell the sweet aromas of a strawberry. Do you wish to look for the strawberry or the pizza?</text><br> <br><text onmousedown=forwards(this)><b>Strawberry</b></text> or <text onmousedown=backwards(this)><b>Pizza</b></text>"
+        var texts = ["<text>As you continue on your journey back home, you catch a scent of something delicious.</text>","<text>First you smell something savory, like a pizza…</text>","<text>but then you begin to smell the sweet aromas of a strawberry.</text>","<text>Do you wish to look for the strawberry or the pizza?</text>","<br> <br><text onmousedown=forwards(this)><b>Strawberry</b></text> or <text onmousedown=backwards(this)><b>Pizza</b></text>"
         ];
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        question003.innerHTML = texts[2];
+        question004.innerHTML = texts[3];
+        question005.innerHTML = texts[4];
         
         function forwards(x) {
-            //score.innerHTML = b--;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose the strawberry";
-                message002.innerHTML = "Following the sweet scents of the strawberries, you come across a small patch of fairy strawberries, as you walk through, you grab a few to eat… this gives you more energy to continue your journey.";
+                message002.innerHTML = "Following the sweet scents of the strawberries, you come across a small patch of fairy strawberries, as you walk through,";
+                message003.innerHTML = " you grab a few to eat…";
+                message004.innerHTML = "this gives you more energy to continue your journey.";
                 
-                //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
                 
                 next001.innerHTML = "<button onclick=next()>Continue</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
         function backwards(x) {
-           // score.innerHTML = b++;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count--;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "You chose pizza ";
-                message002.innerHTML = "You head in the direction of the pizza, and after a few minutes you don\'t know where you are… There are tall buildings and legs EVERYWHERE… You\'re LOST! Turn back.";
+                message002.innerHTML = "You head in the direction of the pizza, and after a few minutes you don\'t know where you are… ";
+                message003.innerHTML = "There are tall buildings and legs EVERYWHERE… You\'re LOST! Turn back."
                
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
 
 
                 next001.innerHTML = "<button onclick=back()>Choose again</button>";
@@ -84,6 +91,9 @@
          //go back to choice if you mess up
          function back(){
             location.assign("fourth_page.html");
+            var move_count = sessionStorage.getItem("Moves");
+            sessionStorage.setItem("Moves", move_count);
+
         }
         
         function next() {

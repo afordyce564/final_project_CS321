@@ -14,25 +14,25 @@
         <div id="disappear001">
             <!--2 id="instruction">Do you go</h1-->
             <p id="question001"></p>
+            <p id="question002"></p>
+            <p id="question003"></p>
+            <p id="question004"></p>
             </div>
-            <p id="message001"></p>
-            <p id="message002"></p>
-            <p id="next001"></p>
+            <div id="afterclick">
+                <p id="message001"></p>
+                <p id="message002"></p>
+                <p id="next001"></p>
+                </div>
         </div>
 
     <script>
  
-        //score
-        var b = 0;
+          //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
         
-        //moves
-        var c = 0;
-        
-
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
-
+        document.getElementById("moves").innerHTML = move_count;
 
         //change text up here for initial prompt
         //user will click on the location
@@ -41,12 +41,17 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text>You listen to your instinct and continue RIGHT. You walk for a few moments, and then you hear it… You hear all your froggy friends playing in a nearby field… OH MY FROGS YOU MADE IT HOME!!!<br> <br></text>"]
+        var texts = ["<text>You listen to your instinct and continue RIGHT.</text>", "<text>You walk for a few moments, and then you hear it…</text>","<text>You hear all your froggy friends playing in a nearby field…</text>","<OH MY FROGS YOU MADE IT HOME!!!</text>"]
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
+        question003.innerHTML = texts[2];
+        question004.innerHTML = texts[3];
 
-         next001.innerHTML = "<button onclick=next()>Continue</button>";
+        sessionStorage.setItem("Moves", move_count);
+
+        next001.innerHTML = "<button onclick=next()>Continue</button>";
      
         
         

@@ -7,31 +7,33 @@
     <link rel="stylesheet" href="homeStyles.css">
 </head>
 <body>
+    <div id="myProgress">
+        <div id="myBar"></div>
     
     <div id="font001">
-            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
-            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+
+        <text id ="movestext">Moves: </text><text id="moves"></text><br />
         <div id="disappear001">
-            <!--2 id="instruction">Do you go</h1-->
             <p id="question001"></p>
+            <p id="question002"></p>
             </div>
-            <p id="message001"></p>
-            <p id="message002"></p>
-            <p id="next001"></p>
+            <div id="afterclick">
+                <p id="message001"></p>
+                <p id="message002"></p>
+                <p id="message003"></p>
+                <p id="message004"></p>
+                <h3 id="next001"></h3>
+            </div>
         </div>
 
     <script>
- 
-        //score
-        var b = 0;
         
-        //moves
-        var c = 0;
+        //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
         
-
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
+        document.getElementById("moves").innerHTML = move_count;
 
 
         //change text up here for initial prompt
@@ -41,37 +43,57 @@
         //lost section c--
         //move to correct section c++
         
-        var texts = ["<text>You turn around and hop in the direction from which you've came until you reach an intersection. There is a fire hydrant in the distance on the left side and people standing outside a building to your right side.</text><br> <br><text onmousedown=forwards(this)><b>Left Side</b></text> or <text onmousedown=backwards(this)><b>Right Side</b></text>"
+        var texts = ["<text>There is a fire hydrant in the distance on the left side and people standing outside a building to your right side.</text>","<br><text onmousedown=forwards(this)><b>Left Side</b></text> or <text onmousedown=backwards(this)><b>Right Side</b></text>"
         ];
+
+        var i = move_count;
+        function move() {
+          if (i == 0) {
+            i = move_count;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = move_count;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+        }
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
+        question002.innerHTML = texts[1];
         
         function forwards(x) {
-            //score.innerHTML = b--;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count ;
                 disappear001.innerHTML = "";
-                message001.innerHTML = "You chose to go to the left side. Heading left, you continue your journey back home. After hopping a few minutes you encounter a goose and a squirrel chatting, about the price of cryptocurrency… of all things. They spot you, and ask if you are lost, to which you reply, &quot;Yes, can you help me find my way back home?&quot;";
-                message002.innerHTML = "";
-                
-                //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                message001.innerHTML = "You chose to go to the left side.";
+                message002.innerHTML = "Heading left, you continue your journey back home. After hopping a few minutes you encounter a goose and a squirrel chatting, ";
+                message003.innerHTML = "about the price of cryptocurrency… of all things.";
+                message004.innerHTML = "They spot you, and ask if you are lost, to which you reply, &quot;Yes, can you help me find my way back home?&quot;";
+
+                sessionStorage.setItem("Moves", move_count);
                 
                 next001.innerHTML = "<button onclick=next()>Continue</button>";
                 //increase progress bar every time the person makes a right move
             }
         }
         function backwards(x) {
-            //score.innerHTML = b++;
-            moves.innerHTML = c++;
-            if (c >= 0) {
+            if (move_count >= 0) {
+                moves.innerHTML = move_count++;
                 disappear001.innerHTML = "";
                 message001.innerHTML = "As you hop to the right, you get closer to the people and closer to their feet. You must be careful going forward.";
                 message002.innerHTML = "";
                 //choose next direction instead of reloading the page
                 //sessionStorage.setItem("Score", b);
-                sessionStorage.setItem("Moves", c);
+                sessionStorage.setItem("Moves", move_count);
 
 
                 next001.innerHTML = "<button onclick=shortCut()>Continue</button>";
@@ -95,10 +117,6 @@
         function shortCut(){
             location.assign("short_cut1.html");
         }
-
-
-        //need a start over function that assigns the location to the start
-        
     </script>
 </body>
 </html>

@@ -11,30 +11,25 @@
 <body>
     
     <div id="font001">
-            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
-            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+            <text id ="movestext">Moves: </text><text id="moves"></text><br />
         <div id="disappear001">
-            <!--2 id="instruction">Do you go</h1-->
             <p id="question001"></p>
             </div>
+        <div id="afterclick">
             <p id="message001"></p>
             <p id="message002"></p>
             <p id="next001"></p>
         </div>
+        </div>
 
     <script>
  
-        //score
-        var b = 0;
+        //moves are not displaying properly
+        var move_count = sessionStorage.getItem("Moves");
+        console.log(move_count);
         
-        //moves
-        var c = 0;
-        
-
         //these are to display scores from page to page 
-        //document.getElementById("score").innerHTML = b;
-        document.getElementById("moves").innerHTML = c;
-
+        document.getElementById("moves").innerHTML = move_count;
 
         //change text up here for initial prompt
         //user will click on the location
@@ -48,6 +43,10 @@
 
         //start game off with first maze picks
         question001.innerHTML = texts[0];
+
+        moves.innerHTML = move_count++ ;
+
+        sessionStorage.setItem("Moves", move_count);
 
         next001.innerHTML = "<button onclick=next()>Continue</button>";
         

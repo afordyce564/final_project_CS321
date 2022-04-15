@@ -16,6 +16,10 @@ h1 {
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#question005{
+  text-align: center;
+}
+
 div.titles {
    padding:.2em;
    width: 75%;
@@ -66,4 +70,231 @@ audio {
 #next001 {
    text-align: center;
    font-size: 24px;
+}
+
+/* ANIMATION */
+
+#disappear001 p {
+   border-style: 1em solid;
+   border-color: greenyellow;
+   font-family: "Courier";
+   font-size: 18px;
+   white-space: nowrap;
+   overflow: hidden;
+   width: 80em;
+   padding: 10px;
+   text-align: center;
+   padding-top: 20px;
+   word-break: break-all;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+ }
+ #disappear001 p:nth-child(1) {
+   width: 80em;
+   -webkit-animation: type3 2s steps(40, end);
+   animation: type3 2s steps(40, end);
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ #disappear001 p:nth-child(2) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(40, end);
+   animation: type3 2s steps(40, end);
+   -webkit-animation-delay: 2s;
+   animation-delay: 2s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ #disappear p:nth-child(3) {
+  width: 80em;
+  opacity: 0;
+  -webkit-animation: type3 2s steps(40, end);
+  animation: type3 2s steps(40, end);
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  padding-top: 20px;
+  word-break: break-all;
+ }
+
+ #afterclick p {
+   border-style: 1em solid;
+   border-color: greenyellow;
+   font-family: "Courier";
+   font-size: 18px;
+   white-space: nowrap;
+   overflow: hidden;
+   width: 80em;
+   padding: 10px;
+   text-align: center;
+   padding-top: 20px;
+   word-break: break-all;
+    -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+}
+
+#afterclick p:nth-child(1) {
+  width: 80em;
+  opacity: 0;
+  -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+  animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  padding-top: 20px;
+  word-break: break-all;
+}
+
+#afterclick p:nth-child(2) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+
+ .afterclick p :nth-child(3) {
+   width: 80em;
+   opacity: 0;
+   -webkit-animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
+   -webkit-animation-delay: 4s;
+   animation-delay: 4s;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   font-size: 18px;
+   padding-top: 20px;
+   word-break: break-all;
+ }
+ 
+ @keyframes type {
+   0% {
+     width: 0;
+   }
+   99.9% {
+     border-right: .15em solid greenyellow;
+   }
+   100% {
+     border: none;
+   }
+ }
+ 
+ @-webkit-keyframes type {
+   0% {
+     width: 0;
+   }
+   99.9% {
+     border-right: .15em solid greenyellow;
+   }
+   100% {
+     border: none;
+   }
+ }
+ 
+ @keyframes type2 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   99.9% {
+     border-right: .15em solid greenyellow;
+   }
+   100% {
+     opacity: 1;
+     border: none;
+   }
+ }
+ 
+ @-webkit-keyframes type2 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   99.9% {
+     border-right: .15em solid greenyellow;
+   }
+   100% {
+     opacity: 1;
+     border: none;
+   }
+ }
+ 
+ @keyframes type3 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ @-webkit-keyframes type3 {
+   0% {
+     width: 0;
+   }
+   1% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ @keyframes blink {
+   50% {
+     border-color: transparent;
+   }
+ }
+ @-webkit-keyframes blink {
+   50% {
+     border-color: tranparent;
+   }
+ }
+
+ /* PROGRESS BAR */
+ #myProgress {
+  width: 100%;
+  background-color: grey;
+  border-style: solid;
+  border-color: black;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
 }
