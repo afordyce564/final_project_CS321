@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Frog Adventure Game</title>
+    <link rel="stylesheet" href="css/bigProjectStyles.css">
+</head>
+<body>
+    
+    <div id="font001">
+            <!--text id = "scoretext">Score: </text><text id="score">0</text><br /-->
+            <text id ="movestext">Moves: </text><text id="moves">0</text><br />
+        <div id="disappear001">
+            <!--2 id="instruction">Do you go</h1-->
+            <p id="question001"></p>
+            </div>
+            <p id="message001"></p>
+            <p id="message002"></p>
+            <p id="next001"></p>
+        </div>
+
+    <script>
+ 
+        //score
+        var b = 0;
+        
+        //moves
+        var c = 0;
+        
+
+        //these are to display scores from page to page 
+        //document.getElementById("score").innerHTML = b;
+        document.getElementById("moves").innerHTML = c;
+
+
+        //change text up here for initial prompt
+        //user will click on the location
+        //change Continue button to next in dialogue 
+        //or dialogue choice will become Continue button and advance conversation
+        //lost section c--
+        //move to correct section c++
+        
+        var texts = ["<text>You are a frog and the people are beginning to look and lean closer to you. Your instincts are kicking in, but which should you listen to?</text><br> <br><text onmousedown=flight(this)><b>Your flight</b></text> or <text onmousedown=fight(this)><b>your fight</b></text>"
+        ];
+
+        //start game off with first maze picks
+        question001.innerHTML = texts[0];
+        
+        function flight(x) {
+            //score.innerHTML = b++;
+            moves.innerHTML = c++;
+            if (c >= 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You dodge the hand reaching towards you and you abandon your travels to the right.";
+                message002.innerHTML = "You flee to the left towards the fire hydrant.";
+                //choose next direction instead of reloading the page
+                //sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", c);
+                
+                //add styling to this element
+                next001.innerHTML = "<button class='butts' onclick=flightChoice()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+        function fight(x) {
+            //score.innerHTML = b++;
+            moves.innerHTML = c++;
+            if (c >= 0) {
+                disappear001.innerHTML = "";
+                message001.innerHTML = "You freeze forgetting your froggy self-defense classes and prey animal know how. You are unable to dodge the incoming hand and are now at the mercy of the person who has grabbed you.";
+                message002.innerHTML = "";
+                //choose next direction instead of reloading the page
+                //sessionStorage.setItem("Score", b);
+                sessionStorage.setItem("Moves", c);
+                
+                //add styling to this element
+                next001.innerHTML = "<button class='butts' onclick=fightChoice()>Continue</button>";
+                //increase progress bar every time the person makes a right move
+            }
+        }
+
+
+         //go back to choice if you mess up
+         function flightChoice(){
+            //if score goes up, go to next option
+            location.assign("third_page.html");
+            //location.reload();
+        }
+        
+        function fightChoice() {
+            //if score goes up, go to next option
+            location.assign("page10.html");
+            //location.reload();
+        } 
+        
+        //progress bar down here
+
+
+        //need a start over function that assigns the location to the start
+        
+    </script>
+</body>
+</html>
