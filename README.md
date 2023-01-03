@@ -1,4 +1,4 @@
-# final_project
+# CS231 Final Project
 
 # if you want to make a new html page for new direction
   index.html is the template
